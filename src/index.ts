@@ -1,8 +1,9 @@
 import express, { Response, Request } from "express";
+import routes from "./routes";
 
 const app = express();
 const port = 3000;
 
-app.get('/', (req: Request, res: Response) => res.send('Welcome to jsondb!'))
+routes(app);
 
 app.listen(port, () => console.log(`JSONDB listening on port ${port}!`))
