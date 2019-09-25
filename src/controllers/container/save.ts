@@ -13,10 +13,10 @@ export default async (req: Request, res: Response) => {
     let record;
     if (existingDocument) {
         entry['_id'] = existingDocument._id; 
-        entry['updatedAt'] = now;
+        entry['_updatedAt'] = now;
         record = await entry.updateOne(entry);
     } else {
-        entry['createdAt'] = now;
+        entry['_createdAt'] = now;
         record = await entry.save();
     }
     res.send(record);
