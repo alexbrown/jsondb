@@ -1,5 +1,6 @@
-import getAll from "./getAll";
+import create from './create';
+import getAll from './getAll';
 import get from './get';
 import save from './save';
 
-export {getAll, get, save};
+export {create, getAll, get, save};
