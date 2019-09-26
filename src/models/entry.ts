@@ -14,9 +14,8 @@ export default class {
             _container: {type: String, index:true, select:false},
             _collection: {type: String, index:true },
             _createdOn: Date,
-            _createdBy: {type: String, select: false},
+            _apikey: {type:String, select: false},
             _updatedOn: Date,
-            _updatedBy: {type: String, selecte: false},
             content: {type: Object}
         });
         return mongoose.model("Entry", entry);

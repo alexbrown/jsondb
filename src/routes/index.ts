@@ -9,12 +9,12 @@ export default (app: Application) => {
     //This will return the landing page
     app.get(endpoints.LANDING_PAGE, landingCtrl);
 
-    //This will return all of the objects within the container
-    app.get(endpoints.CONTAINER, getAll);
-
     //This will return either a object within the container or
     //it will return a collection based on what is passed in
-    app.get(endpoints.COLLECTION_ID, get);
+    app.get(endpoints.CONTAINER_ID, get);
+
+    //This will return all of the objects within the container
+    app.get(endpoints.CONTAINER, getAll);
 
     //This will return an object within the specified collection
     app.get(endpoints.COLLECTION_ID, getCollectionById);

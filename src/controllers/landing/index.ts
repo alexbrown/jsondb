@@ -1,5 +1,8 @@
 import { Request, Response } from "express";
+import {create} from '../container';
 
-export default (req: Request, res: Response) => {
-    res.send("This is the endpoint for the landing page");
+export default async (req: Request, res: Response) => {
+    const container = await create(); 
+    const {_apikey, _container} = container;
+    res.render("main", {_apikey, _container});
 }
