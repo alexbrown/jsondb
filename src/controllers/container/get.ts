@@ -6,8 +6,9 @@ const Entry = db.getInstance();
 export default async (req: Request, res: Response) => {
     const {container, id} = req.params;
     if (id.match(/^[0-9a-fA-F]{24}$/)) {
-        const entries = await Entry.find({_container: container, _id: req.params.id});
-        res.send(entries);
+        const entry = await Entry.findOne({_container: container, _id: req.params.id});
+        entry.content = JSON.parse(entry.content);
+        res.send(entry);
     } else {
         getAll(req, res);
     }
