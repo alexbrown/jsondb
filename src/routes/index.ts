@@ -1,7 +1,7 @@
 import { Application } from "express";
 import endpoints from "./endpoints";
 import landingCtrl from "../controllers/landing";
-import {getAll, get, save} from "../controllers/container";
+import {getAll, get, save, create} from "../controllers/container";
 import {get as getCollectionById} from "../controllers/collection";
 
 export default (app: Application) => {
@@ -20,4 +20,6 @@ export default (app: Application) => {
     app.get(endpoints.COLLECTION_ID, getCollectionById);
 
     app.put(endpoints.CONTAINER_SAVE, save);
+
+    app.post(endpoints.CONTAINER_CREATE, create);
 }
