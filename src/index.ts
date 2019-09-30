@@ -8,8 +8,11 @@ import routes from "./routes";
 const app = express();
 const port = 3000;
 
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ 
+  extended: false,
+  limit: '100kb'
+}));
+app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.set('view engine', 'hbs');
