@@ -1,11 +1,17 @@
 import { Request, Response } from "express";
 import {getParams} from '../../helpers/request';
+import {validateApiKey} from '../../services/validation';
 import db from '../../models/entry';
 const Entry = db.getInstance();
 
 export default async (req: Request, res: Response) => {
     const now = new Date();
     const params = getParams(req.params);
+    const isValidKey = await validateApiKey(req.query.apikey, params._container);
+    if (!isValidKey) {
+        res.statusCode = 401;
+        res.send({error: "Invalid API Key"});
+    }
     const { body } = req;
     const entry = buildEntry(params, body);
     
