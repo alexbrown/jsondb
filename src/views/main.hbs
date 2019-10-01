@@ -2,9 +2,22 @@
     <head>
         <link rel="stylesheet" href="/output.css">
     </head>
-    <body>
-        <p>container: <span id="container-id"></span></p>
-        <p>apikey: <span id="apikey"></span></p>
+    <body class="font-mono flex justify-center pt-32">
+        <div class="w-4/12">
+            <h1 class="text-gray-700 text-2xl mb-4">{jsondb}</h1>  
+            <p class="mb-4 text-gray-700">An open source JSON storage tool for developers in a hurry. Perfect for <span class="font-bold">prototypes</span>, <span class="font-bold">tutorials</span> and <span class="font-bold">hackathons</span></p>          
+            <p class="text-xs font-bold text-gray-600 mb-4">*jsondb is not at all intended for production or long term use. So don’t do that.</p>
+            <div class="flex flex-row bg-gray-200 items-center w-full justify-between">
+                <p class="pl-2">https://jsondb.co/example/</p>
+                <button class="bg-gray-500 p-2">
+                    Copy 
+                </button>
+            </div>
+        </div>
+            {{!-- <h1>JSONDB</h1>
+            <h3>HTTP API based JSON storage</h3>
+            <p>container: <span id="container-id"></span></p>
+            <p>apikey: <span id="apikey"></span></p> --}}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
         <script src="/script.js"></script>
     </body>
