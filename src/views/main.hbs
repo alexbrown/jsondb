@@ -1,24 +1,67 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="/output.css">
-    </head>
-    <body class="font-mono flex justify-center pt-32">
-        <div class="w-4/12">
-            <h1 class="text-gray-700 text-2xl mb-4">{jsondb}</h1>  
-            <p class="mb-4 text-gray-700">An open source JSON storage tool for developers in a hurry. Perfect for <span class="font-bold">prototypes</span>, <span class="font-bold">tutorials</span> and <span class="font-bold">hackathons</span></p>          
-            <p class="text-xs font-bold text-gray-600 mb-4">*jsondb is not at all intended for production or long term use. So don’t do that.</p>
-            <div class="flex flex-row bg-gray-200 items-center w-full justify-between">
-                <p class="pl-2">https://jsondb.co/example/</p>
-                <button class="bg-gray-500 p-2">
-                    Copy 
-                </button>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/output.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>jsondb</h1>
+        <p id="explainer">An open source JSON storage tool for developers in a hurry. Perfect for <span>prototypes</span>, <span>tutorials</span>, and <span>hackathons</span></p>
+        <p id="disclaimer">*jsondb is <span>not</span> at all intended for production or long term use. So don’t do that.</p>
+        <div>
+            <h3>How it works</h3>
+            <p>jsondb allows you to store, read and update JSON data over an HTTP API </p>
+
+            <h4>Store and update json</h4>
+            <p class="request-desc">You can store or update a json object into a container by sending a PUT request.</p>
+            <div class="request-block">
+                <div class="request-url">
+                    <span class="put-label">PUT</span> /:container?apikey={YOUR_KEY}
+                </div>
+                <div class="request-body">
+                    {"hello": "world"}
+                </div>
             </div>
+
+            <h4>Retrieve json</h4>
+            <p class="request-desc">Retrieve your entire json store by calling your contianers GET endpoint</p>
+            <div class="request-block">
+                <div class="request-url">
+                    <span class="get-label">GET</span> /:container
+                </div>
+                <div class="request-body">
+                    {"hello": "world"}
+                </div>
+            </div>
+            
+            <h4>Create a collection</h4>
+            <p class="request-desc">You can group your JSON into collections.</p>
+            <div class="request-block">
+                <div class="request-url">
+                    <span class="put-label">PUT</span> /:container/:collection?apikey={YOUR_KEY}
+                </div>
+                <div class="request-body">
+                    {"hello": "world"}
+                </div>
+            </div>
+
+            <h4>Retrieve a collection</h4>
+            <p class="request-desc">Retrieve only the json in the specified collection</p>
+            <div class="request-block">
+                <div class="request-url">
+                    <span class="get-label">GET</span> /:container/:collection
+                </div>
+                <div class="request-body">
+                    {"hello": "world"}
+                </div>
+            </div>
+
         </div>
-            {{!-- <h1>JSONDB</h1>
-            <h3>HTTP API based JSON storage</h3>
-            <p>container: <span id="container-id"></span></p>
-            <p>apikey: <span id="apikey"></span></p> --}}
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
-        <script src="/script.js"></script>
-    </body>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <script src="/script.js"></script>
+</body>
+
 </html>
