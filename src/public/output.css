@@ -71,3 +71,38 @@ span {
   margin:0;
   margin-bottom:20px;
 }
+
+.response-block {
+  margin:30px 0;
+  background:#f6fafc;
+  border-radius: 6px;
+  border:1px solid #ededed;
+  color:#6f788b
+}
+
+.response-header {
+  background:#e3e8ed;
+  padding:4px 10px;
+  font-weight: bold;
+}
+
+.response-body span {
+  font-weight: normal;
+  padding:4px 10px;
+}
+
+.footer {
+  margin-top:30px;
+  margin-bottom:30px;
+  font-size:14px;
+  border-top:1px solid #6f788b;
+}
+
+.alert {
+  background:#FFEFB3;
+  font-size:14px;
+  color:#BB8A43;
+  border-radius: 6px;
+  padding:4px 10px;
+  margin:10 0;
+}
