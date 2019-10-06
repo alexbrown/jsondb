@@ -20,7 +20,7 @@ export default async (req: Request, res: Response) => {
     if (existingDocument) {
         entry['_id'] = existingDocument._id; 
         entry['_updatedOn'] = now;
-        record = await entry.updateOne(entry);
+        record = await Entry.findOneAndUpdate({_id: existingDocument._id}, {$set: entry});
     } else {
         entry['_createdOn'] = now;
         record = await entry.save();
