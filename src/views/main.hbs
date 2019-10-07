@@ -47,14 +47,43 @@
                 </div>
             </div>
 
+            <div class="response-block">
+                <div class="response-header">
+                    RESPONSE
+                </div>
+                <div class="response-body">
+<pre>{
+    "_id":"00000000000000",
+    "_createdOn": "2019-10-06T23:27:01.532Z",
+    "_collection": null,
+    "_updatedOn": "2019-10-06T23:40:15.933Z",
+    "content": "{"hello": "world"}"
+}</pre>
+                </div>
+            </div>
+
             <h4>Retrieve json</h4>
             <p class="request-desc">Retrieve your entire json store by calling your contianers GET endpoint</p>
             <div class="request-block">
                 <div class="request-url">
                     <span class="get-label">GET</span> /:container
                 </div>
-                <div class="request-body">
-                    {"hello": "world"}
+            </div>
+
+            <div class="response-block">
+                <div class="response-header">
+                    RESPONSE
+                </div>
+                <div class="response-body">
+<pre>[{
+    "_id":"00000000000000",
+    "_createdOn": "2019-10-06T23:27:01.532Z",
+    "_collection": null,
+    "_updatedOn": "2019-10-06T23:40:15.933Z",
+    "content": {
+        hello: "world"
+    }
+}]</pre>
                 </div>
             </div>
 
@@ -68,7 +97,25 @@
                     <span class="put-label">PUT</span> /:container/:collection?apikey={YOUR_KEY}
                 </div>
                 <div class="request-body">
-                    {"hello": "world"}
+                    [{"name": "Tony Stark"}, {"name": "Steve Rogers"}]
+                </div>
+            </div>
+
+            <div class="response-block">
+                <div class="response-header">
+                    RESPONSE
+                </div>
+                <div class="response-body">
+<pre>{
+    "_id":"00000000000000",
+    "_createdOn": "2019-10-06T23:27:01.532Z",
+    "_collection": "users",
+    "_updatedOn": "2019-10-06T23:40:15.933Z",
+    "content": "[
+        {"name": "Tony Stark"}, 
+        {"name": "Steve Rogers"}
+    ]"
+}</pre>
                 </div>
             </div>
 
@@ -78,8 +125,23 @@
                 <div class="request-url">
                     <span class="get-label">GET</span> /:container/:collection
                 </div>
-                <div class="request-body">
-                    {"hello": "world"}
+            </div>
+
+            <div class="response-block">
+                <div class="response-header">
+                    RESPONSE
+                </div>
+                <div class="response-body">
+<pre>{
+    "_id":"00000000000000",
+    "_createdOn": "2019-10-06T23:27:01.532Z",
+    "_collection": "users",
+    "_updatedOn": "2019-10-06T23:40:15.933Z"
+    "content": [
+        {name: "Tony Stark"},
+        {name: "Steve Rogers"}
+    ]
+}</pre>
                 </div>
             </div>
         </div> 

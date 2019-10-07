@@ -22,6 +22,11 @@ span {
   font-weight: bold;
 }
 
+pre {
+  line-height: 18px;
+  padding: 4px 10px;
+}
+
 .container {
   display:flex;
   max-width: 500px;
