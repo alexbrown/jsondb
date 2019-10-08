@@ -1,10 +1,39 @@
 import getAll from './getAll';
-import { Request } from 'express';
+import Request from '../../test/helpers/request';
 import Response from '../../test/helpers/response';
+import db from '../../models/entry';
 
-test('controller returns correct string', () => {
-    const req = {} as Request;
+jest.mock('../../models/entry', () => ({
+    getInstance: () => {
+        return {
+            find: jest.fn().mockResolvedValue([
+                {
+                    container: 'test',
+                    collection: null,
+                    content: "{ \"test\": \"Testing\"}"
+                },
+                {
+                    container: 'test',
+                    collection: 'users',
+                    content: "{ \"name\": \"Chuck\"}"
+                }
+            ])
+        }
+    }
+}));
+
+test('getAll should return an array of all the records in a container', async () => {
+    const req = new Request() as any;
+    req.params.container = "test";
     const res = new Response() as any;
-    //getAll(req, res);
-    //expect(res.message).toEqual('This is the endpoint to get all the objects in a container');
+    await getAll(req, res);
+    expect(res.message).toHaveLength(2);
+    expect(res.message[0].container).toBe('test');
+    expect(res.message[0].collection).toBe(null);
+    expect(res.message[0].content).toHaveProperty('test');
+    expect(res.message[0].content.test).toBe('Testing');
+    expect(res.message[1].container).toBe('test');
+    expect(res.message[1].collection).toBe('users');
+    expect(res.message[1].content).toHaveProperty('name');
+    expect(res.message[1].content.name).toBe('Chuck');
 });
