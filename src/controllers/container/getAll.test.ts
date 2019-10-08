@@ -6,7 +6,8 @@ import db from '../../models/entry';
 jest.mock('../../models/entry', () => ({
     getInstance: () => {
         return {
-            find: jest.fn().mockResolvedValue([
+            find: jest.fn()
+            .mockResolvedValueOnce([
                 {
                     container: 'test',
                     collection: null,
@@ -18,11 +19,13 @@ jest.mock('../../models/entry', () => ({
                     content: "{ \"name\": \"Chuck\"}"
                 }
             ])
+            .mockResolvedValueOnce([])
         }
     }
 }));
 
-test('getAll should return an array of all the records in a container', async () => {
+test('should return an array of all the records in a container', async () => {
+
     const req = new Request() as any;
     req.params.container = "test";
     const res = new Response() as any;
@@ -36,4 +39,11 @@ test('getAll should return an array of all the records in a container', async ()
     expect(res.message[1].collection).toBe('users');
     expect(res.message[1].content).toHaveProperty('name');
     expect(res.message[1].content.name).toBe('Chuck');
+});
+
+test('should return an empty array when no records are returned', async () => {
+    const req = new Request() as any;
+    const res = new Response() as any;
+    await getAll(req, res);
+    expect(res.message).toHaveLength(0);
 });
