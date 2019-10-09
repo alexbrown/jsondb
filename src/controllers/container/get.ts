@@ -10,6 +10,6 @@ export default async (req: Request, res: Response) => {
         entry.content = JSON.parse(entry.content);
         res.send(entry);
     } else {
-        getAll(req, res);
+        await getAll(req, res);
     }
 }

@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import express, { Response, Request } from "express";
 import bodyParser from 'body-parser';
 import hbs from 'express-handlebars';

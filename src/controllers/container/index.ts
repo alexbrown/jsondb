@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import create from './create';
 import getAll from './getAll';
 import get from './get';
