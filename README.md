@@ -9,16 +9,16 @@
 🚧 [Project Board](https://github.com/users/alexbrown/projects/1)
 
 ## Install
-npm install
+```npm install```
 
 ## Usage
-npm run start
+```npm run start```
 
 ## Build
-npm run build
+```npm run build```
 
 ## Run Tests
-npm run test
+```npm run test```
 
 ## Author
 👤 [Alex Brown](https://alex.design)
