@@ -5,7 +5,7 @@ const Entry = db.getInstance();
 export default async (req: Request, res: Response) => {
     const entries = await Entry.find({_container: req.params.container});
     entries.map((entry: any) => {
-        entry.content = JSON.parse(entry.content);
+        entry.content = entry.content != null ? JSON.parse(entry.content) : null;
     })
     res.send(entries);
 }
